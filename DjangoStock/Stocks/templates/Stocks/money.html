@@ -1,0 +1,136 @@
+{% extends 'Stocks/second.html' %}
+
+{% block content %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Searching KorStock</title>
+  </head>
+  <body>
+
+    {% csrf_token %}
+
+
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-2 text-gray-800">기업 재무제표 조회</h1>
+            <br>
+            <ul>
+          <li><p class="mb-4">재무제표는 과거로부터의 회사 운영상태나, 재무적인 부분들을 쉽게 볼 수 있도록 정리해놓은 요약서로<br> 회사의 재무건전성을 평가할 수 있고, 향후 실적을 추정할 수 있고, 투자의 합리성을 갖출 수 있습니다.</p></li>
+            </ul>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Financial statement Tables</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <thead>
+        <tr class = "table-warning" align = center>
+          <th scope="col">#</th>
+          <th scope="col">항목명</th>
+          <th scope="col">데이터</th>
+          <th scope="col">항목설명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr align = center>
+            <th scope="row">1</th>
+            <td>법인등록번호</td>
+            <td>{{ allData.crno }}</td>
+            <td>법인등록번호</td>
+        </tr>
+        <tr align = center>
+            <th scope="row">2</th>
+            <td>사업연도</td>
+            <td>{{ allData.bizYear }}</td>
+            <td>법인세의 과세기간</td>
+        </tr>
+        <tr align = center>
+            <th scope="row">3</th>
+            <td>기업영업이익</td>
+            <td>{{ allData.enpBzopPft }}</td>
+            <td>기업의 영업이익</td>
+        </tr>
+        <tr align = center>
+            <th scope="row">4</th>
+            <td>기업자본금액</td>
+            <td>{{ allData.enpCptlAmt }}</td>
+            <td>기업의 영리를 목적으로 사업에 투자한 돈</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">5</th>
+              <td>기업 당기 순이익</td>
+              <td>{{ allData.enpCrtmNpf }}</td>
+              <td>기업 당기의 순이익</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">6</th>
+              <td>기업매출금액</td>
+              <td>{{ allData.enpSaleAmt }}</td>
+              <td>기업의 매출액</td>
+         </tr>
+        <tr align = center>
+              <th scope="row">7</th>
+              <td>기업 총 자산금액</td>
+              <td>{{ allData.enpTastAmt }}</td>
+              <td>기업의 총 자산 합계금액</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">8</th>
+              <td>기업 총 자본금액</td>
+              <td>{{ allData.enpTcptAmt }}</td>
+              <td>기업의 총 자본 합계금액</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">9</th>
+              <td>기업 총 부채금액</td>
+              <td>{{ allData.enpTdbtAmt }}</td>
+              <td>기업의 총 부채 합계금액</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">10</th>
+              <td>재무제표구분코드</td>
+              <td>{{ allData.fnclDcd }}</td>
+              <td>회계 보고서 구분 코드</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">11</th>
+              <td>재무제표구분코드명</td>
+              <td>{{ allData.fnclDcdNm }}</td>
+              <td>회계 보고서 구분 코드명</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">12</th>
+              <td>재무제표 부채비율</td>
+              <td>{{ allData.fnclDebtRto }}</td>
+              <td>회계 보고서상의 부채 비율</td>
+        </tr>
+       <tr align = center>
+              <th scope="row">13</th>
+              <td>포괄손익계산금액</td>
+              <td>{{ allData.iclsPalClcAmt }}</td>
+              <td>금융회사세 비용 차감전 순이익 금액</td>
+        </tr>
+      </tbody>
+        </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+{% endblock %}
+  </body>

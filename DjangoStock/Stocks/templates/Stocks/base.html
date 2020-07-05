@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Welcome</title>
+</head>
+<body>
+{% csrf_token %}
+<div class = "container">
+  <br>
+  <br>
+  <br>
+<h1 align = center>Welcome to the Korea Stock information site.</h1>
+  <br>
+  <br>
+  <br>
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Stock statement Tables</h5>
+            <p class="card-text">국내 회사명을 조회하면 주식발행정보를 확인 할 수 있습니다.</p>
+            <a href="{% url 'news' %}" class="btn btn-primary">지금 바로 확인하기</a>
+          </div>
+        </div>
+      </div>
+
+<br>
+<br>
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Financial statement Tables</h5>
+        <p class="card-text">회사의 재무건전성을 평가할 수 있고, 향후 실적을 추정할 수 있습니다.</p>
+        <a href="{% url 'money' %}" class="btn btn-primary">지금 바로 확인하기</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% extends 'Stocks/first.html' %}
+
+{% block content %}
+<head>
+
+     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Searching Korea Stocks</title>
+</head>
+
+<body>
+{% csrf_token %}
+<div class = "container">
+    <h1>Welcome to join us :)</h1>
+
+        <form method="POST" action="{% url 'signup'%}">
+
+            <div class="form-group">
+            <br>
+            Username :
+            <br>
+            <input type="text" class="form-control" name="username" aria-describedby="usernameHelp">
+            <small id="usernameHelp" class="form-text text-muted">5~20자의 영문 소문자,숫자와 특수기호(_),(-)만 사용 가능합니다.</small>
+            </div>
+
+            <div class="form-group">
+            <br>
+            Password :
+            <br>
+            <input type="Password" class="form-control" name="password1">
+            </div>
+
+             <div class="form-group">
+             <br>
+             Confirm Password :
+             <br>
+             <input type="password" class="form-control" name="password2">
+             <br>
+             <br>
+             </div>
+            <input type="submit" class="btn btn-primary" value="Sign Up">
+        </form>
+</div>
+{% endblock %}
+</body>
+
+
+
+

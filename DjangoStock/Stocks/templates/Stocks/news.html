@@ -1,0 +1,145 @@
+{% extends 'Stocks/first.html' %}
+
+{% block content %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Searching KorStock</title>
+  </head>
+  <body>
+
+    {% csrf_token %}
+
+
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+            <br>
+          <h1 class="h3 mb-2 text-gray-800">국내 주식 발행정보 조회</h1>
+            <br>
+            <ul>
+            <li><p class="mb-4">국내 회사명을 조회하면 주식발행정보를 확인 할 수 있습니다.</p></li>
+            <li><p class="mb-4">법인등록번호를 복사하여 Financial statement에 검색하시면 해당 기업의 재무제표를 확인 할 수 있습니다.</p></li>
+            </ul>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Stock statement Tables</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <thead>
+        <tr class = "table-primary" align = center>
+          <th scope="col">#</th>
+          <th scope="col">항목명</th>
+          <th scope="col">데이터</th>
+          <th scope="col">항목설명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr align = center>
+          <th scope="row">1</th>
+          <td>주식회사발행회사명</td>
+            <td>{{ allData.stckIssuCmpyNm }}</td>
+          <td>주식발행사의 명칭</td>
+        </tr>
+        <tr align = center>
+          <th scope="row">2</th>
+          <td>기준일자</td>
+          <td>{{ allData.basDt }}</td>
+          <td>작업 또는 거래의 기준이 되는 일자(년월일)</td>
+        </tr>
+        <tr align = center>
+            <th scope="row">3</th>
+            <td>법인등록번호</td>
+            <td><a href = "">{{ allData.crno }}</a></td>
+            <td>법인등록번호</td>
+        </tr>
+        <tr align = center>
+            <th scope="row">4</th>
+            <td>예탁취소일자</td>
+            <td>{{ allData.dpsgCanDt }}</td>
+            <td>예탁을 취소한 일자</td>
+        </tr>
+        <tr align = center>
+            <th scope="row">5</th>
+            <td>예탁등록일자</td>
+            <td>{{ allData.dpsgRegDt }}</td>
+            <td>종목상장 적용일자(상장일)</td>
+        </tr>
+        <tr align = center>
+            <th scope="row">6</th>
+            <td>ISIN코드</td>
+            <td>{{ allData.isinCd }}</td>
+            <td>국제 채권 식별 번호</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">7</th>
+              <td>ISIN코드명</td>
+              <td>{{ allData.isinCdNm }}</td>
+              <td>국제인증 고유번호 코드 이름</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">8</th>
+              <td>발행형태 구분명</td>
+              <td>{{ allData.issuFrmtClsfNm }}</td>
+              <td>발행형태를 구분하는 명칭</td>
+         </tr>
+        <tr align = center>
+              <th scope="row">9</th>
+              <td>발행 주식 수</td>
+              <td>{{ allData.issuStckCnt }}</td>
+              <td>발행 주식의 총 수량</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">10</th>
+              <td>상장폐지일자</td>
+              <td>{{ allData.lstgAbolDt }}</td>
+              <td>종목상장 폐지일자</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">11</th>
+              <td>상장일자</td>
+              <td>{{ allData.lstgDt }}</td>
+              <td>종목상장 적용일자(상장일)</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">12</th>
+              <td>유가증권종목종류코드</td>
+              <td>{{ allData.scrsItmsKcd }}</td>
+              <td>해당 유가증권의 종목종류</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">13</th>
+              <td>유가증권종목종류코드명</td>
+              <td>{{ allData.scrsItmsKcdNm }}</td>
+              <td>해당 유가증권의 종목종류를 관리하는 코드명</td>
+        </tr>
+        <tr align = center>
+              <th scope="row">14</th>
+              <td>주식액면가</td>
+              <td>{{ allData.stckParPrc }}</td>
+              <td>주식의 권면에 기재된 금액</td>
+        </tr>
+      </tbody>
+        </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+{% endblock %}
+  </body>
+

@@ -1,0 +1,11 @@
+COPYING.txt
+MANIFEST.in
+README.txt
+setup.cfg
+setup.py
+ElementTreeFactory/__init__.py
+ElementTreeFactory.egg-info/PKG-INFO
+ElementTreeFactory.egg-info/SOURCES.txt
+ElementTreeFactory.egg-info/dependency_links.txt
+ElementTreeFactory.egg-info/top_level.txt
+ElementTreeFactory.egg-info/zip-safe
